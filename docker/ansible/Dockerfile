@@ -6,7 +6,9 @@ ENV ISLANDORA_DISTRO="centos/7" \
 WORKDIR /root/playbook
 
 RUN yum -y install epel-release && \
-    yum -y install git ansible openssh-clients
+    yum -y install git openssl openssh-clients python-pip python-devel python
+
+RUN pip install ansible==2.8.7
 
 COPY entrypoint.sh /bin/
 
